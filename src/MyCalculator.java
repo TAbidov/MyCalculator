@@ -8,12 +8,12 @@ public class MyCalculator {
 
     // 1111111111111111111111111111111111111
     public static boolean AllClearBug(){
-        /**/      if (ForCalc.length()<=2)
+              if (ForCalc.length()<=2)
                          {System.out.println("Некорректный ввод! Отсутствие примера"); HaveBug++; return false;}
-        /**/
-        ReplaceRusXonEn(); //заменить все русские Х на английские Х
-        /**/if (!ClearStep1()) return false; //точки, запятые, отсутствие араб. и рим. цифр, выдать ошибку. false - некорректный ввод.
-        /**/if  (FindAnyErrSymbol()) return false; //если присутствуют запрещенные символы
+
+             ReplaceRusXonEn(); //заменить все русские Х на английские Х
+            if (!ClearStep1()) return false; //точки, запятые, отсутствие араб. и рим. цифр, выдать ошибку. false - некорректный ввод.
+            if  (FindAnyErrSymbol()) return false; //если присутствуют запрещенные символы
             if  (!MathSymbolOne()) return false; // если символов мат операции больше одного
             if (!MathSymbolNotFirstNotEnd()) return false;  // +-*/ не в конце и не в начале
     return true;
@@ -195,6 +195,16 @@ return true;
    /**/        ResultRim += rim[i-1];
    /**/    }
    /**/
+        // не большое дополнение
+
+        ResultRim = ResultRim.replace("XXXXXXXX", "LXXX");
+        ResultRim = ResultRim.replace("XXXXXXX", "LXX");
+        ResultRim = ResultRim.replace("XXXXXX", "LX");
+        ResultRim = ResultRim.replace("XXXXX", "L");
+        ResultRim = ResultRim.replace("XXXX", "XL");
+
+
+        // </небольшое дополнение >
    /**/  return ResultRim;
    /**/  }
 
